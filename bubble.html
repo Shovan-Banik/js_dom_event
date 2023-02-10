@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubble</title>
+</head>
+<body id="main-container">
+    <h1>Exploring event bubble</h1>
+    <section id="section-ul">
+        <ul id="items-li">
+            <li id="item-1">Lorem ipsum dolor sit amet.</li>
+            <li id="item-2">Nulla maiores esse modi numquam.</li>
+            <li id="item-3">Nobis dignissimos laboriosam adipisci totam!</li>
+            <li id="item-4">Tempora nemo quia sunt quod.</li>
+            <li id="item-5">Dolores officia rem provident natus!</li>
+            <li id="item-6">Illum ullam laudantium harum ea?</li>
+        </ul>
+    </section>
+    <script>
+
+        document.getElementById('item-3').addEventListener('click',function(event){
+            console.log('item3 clicked');
+            // event.stopPropagation();
+            // stopPropagation() function diye shudhu matro oi id diye jotogula ace oigula rekhe onno gulu delete kore dey.
+            event.stopImmediatePropagation();  
+            // stopImmediatePropagation() function dara oita cara bubble ar sby k bondho kore dey. Mane sudhu matro 1 ta output dekhabe.
+        })
+        document.getElementById('item-3').addEventListener('click',function(event){
+            console.log('item3 clicked');
+        })
+        document.getElementById('item-3').addEventListener('click',function(event){
+            console.log('item3 clicked');
+        })
+
+
+        document.getElementById('items-li').addEventListener('click',function(){
+            console.log('ul clicked');
+        })
+        document.getElementById('section-ul').addEventListener('click',function(){
+            console.log('section clicked');
+        })
+        document.getElementById('main-container').addEventListener('click',function(){
+            console.log('body clicked');
+        })
+
+    </script>
+</body>
+</html>
